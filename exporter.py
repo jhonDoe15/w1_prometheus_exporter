@@ -96,7 +96,7 @@ class Sensor (object):
                     else:
                         self.unset_missread()
                         return ret_val, ""
-                except Exception, e:
+                except Exception as e:
                     print(self.id, "Ups something went wrong.", e.message)
                     if crc is not None:
                         print("CRC Line: ", crc)
@@ -104,7 +104,7 @@ class Sensor (object):
                         print("l Line: ", l)
                     self.set_missread()
                     return None, e.message
-        except IOError, e:
+        except IOError as e:
             print(e.message)
             self.set_missread()
             return None, e.message
